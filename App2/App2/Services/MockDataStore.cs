@@ -16,15 +16,6 @@ namespace App2.Services
         public MockDataStore()
         {
             items = new List<Item>();
-            /*var mockItems = new List<Item>
-            {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
-            };*/
 
             using (var webClient = new WebClient())
             {
@@ -33,10 +24,7 @@ namespace App2.Services
                 var mockItems = JsonConvert.DeserializeObject<LinkedList<New>>(response);
                 foreach (var item in mockItems)
                 {
-                    var text = item.Text;
-                    var t = text;
-                    //  var t = Regex.Replace(item.Text, @"<[^>]*>", String.Empty);
-                    t = Regex.Replace(t, @"<img[^>]*>", String.Empty);
+                    var t = Regex.Replace(item.Text, @"<img[^>]*>", String.Empty);
                     t = Regex.Replace(t, @"<br[^>]*>", "\n");
                     t = Regex.Replace(t, @"<p[^>]*>", String.Empty);
                     t = Regex.Replace(t, @"</p[^>]*>", "\n");
@@ -44,9 +32,10 @@ namespace App2.Services
                     t = Regex.Replace(t, @"&mdash;", "–");
                     t = Regex.Replace(t, @"&laquo;", "«");
                     t = Regex.Replace(t, @"&raquo;", "»");
-                  //  t = Regex.Replace(t, @"<a[^>]*>", String.Empty);
-
-                    var d = 5;
+                    t = Regex.Replace(t, @"<a href[*]*h", "h");
+                    t = Regex.Replace(t, @"<span[^>]*>", String.Empty);
+                    t = Regex.Replace(t, @"</span[^>]*>", String.Empty);
+                    t = Regex.Replace(t, @"<[^>]*>", String.Empty);
 
                     items.Add(new Item()
                     {

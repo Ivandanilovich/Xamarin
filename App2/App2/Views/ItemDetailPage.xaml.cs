@@ -25,13 +25,7 @@ namespace App2.Views
         public ItemDetailPage()
         {
             InitializeComponent();
-            var browser = new WebView();
-            var htmlSource = new HtmlWebViewSource();
-            htmlSource.Html = @"<html><body>
-  <h1>Xamarin.Forms</h1>
-  <p>Welcome to WebView.</p>
-  </body></html>";
-            browser.Source = htmlSource;
+          
 
             var item = new Item
             {
