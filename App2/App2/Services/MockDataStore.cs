@@ -34,8 +34,18 @@ namespace App2.Services
                 foreach (var item in mockItems)
                 {
                     var text = item.Text;
+                    var t = text;
+                    //  var t = Regex.Replace(item.Text, @"<[^>]*>", String.Empty);
+                    t = Regex.Replace(t, @"<img[^>]*>", String.Empty);
+                    t = Regex.Replace(t, @"<br[^>]*>", "\n");
+                    t = Regex.Replace(t, @"<p[^>]*>", String.Empty);
+                    t = Regex.Replace(t, @"</p[^>]*>", "\n");
+                    t = Regex.Replace(t, @"&nbsp;", " ");
+                    t = Regex.Replace(t, @"&mdash;", "–");
+                    t = Regex.Replace(t, @"&laquo;", "«");
+                    t = Regex.Replace(t, @"&raquo;", "»");
+                  //  t = Regex.Replace(t, @"<a[^>]*>", String.Empty);
 
-                    var t = Regex.Replace(item.Text, @"<[^>]*>", String.Empty);
                     var d = 5;
 
                     items.Add(new Item()
@@ -46,8 +56,6 @@ namespace App2.Services
                     }) ;
                 }
             }
-
-
         }
 
         public async Task<bool> AddItemAsync(Item item)
