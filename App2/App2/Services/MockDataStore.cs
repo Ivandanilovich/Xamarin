@@ -47,29 +47,29 @@ namespace App2.Services
             }
         }
 
-        public async Task<bool> AddItemAsync(Item item)
-        {
-            items.Add(item);
+        //public async Task<bool> AddItemAsync(Item item)
+        //{
+        //    items.Add(item);
 
-            return await Task.FromResult(true);
-        }
+        //    return await Task.FromResult(true);
+        //}
 
-        public async Task<bool> UpdateItemAsync(Item item)
-        {
-            var oldItem = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
-            items.Remove(oldItem);
-            items.Add(item);
+        //public async Task<bool> UpdateItemAsync(Item item)
+        //{
+        //    var oldItem = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
+        //    items.Remove(oldItem);
+        //    items.Add(item);
 
-            return await Task.FromResult(true);
-        }
+        //    return await Task.FromResult(true);
+        //}
 
-        public async Task<bool> DeleteItemAsync(string id)
-        {
-            var oldItem = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
-            items.Remove(oldItem);
+        //public async Task<bool> DeleteItemAsync(string id)
+        //{
+        //    var oldItem = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
+        //    items.Remove(oldItem);
 
-            return await Task.FromResult(true);
-        }
+        //    return await Task.FromResult(true);
+        //}
 
         public async Task<Item> GetItemAsync(string id)
         {
