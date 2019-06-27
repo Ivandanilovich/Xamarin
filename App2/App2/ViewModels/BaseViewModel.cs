@@ -1,12 +1,10 @@
-﻿using System;
+﻿using App2.Models;
+using App2.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-
 using Xamarin.Forms;
-
-using App2.Models;
-using App2.Services;
 
 namespace App2.ViewModels
 {

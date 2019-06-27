@@ -1,6 +1,4 @@
-﻿using System;
-
-using App2.Models;
+﻿using App2.Models;
 
 namespace App2.ViewModels
 {

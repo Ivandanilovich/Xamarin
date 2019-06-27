@@ -1,12 +1,9 @@
-﻿using System;
+﻿using App2.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
-
-using App2.Models;
-using App2.Views;
 
 namespace App2.ViewModels
 {
@@ -20,13 +17,6 @@ namespace App2.ViewModels
             Title = "Test Xamarin Project";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-
-            //MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
-            //{
-            //    var newItem = item as Item;
-            //    Items.Add(newItem);
-            //    await DataStore.AddItemAsync(newItem);
-            //});
         }
 
         async Task ExecuteLoadItemsCommand()
